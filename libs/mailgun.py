@@ -1,10 +1,11 @@
+import os
 from typing import List
 from requests import Response, post
 
 
 class Mailgun:
-    MAILGUN_DOMAIN = "sandbox436e3a5721bf44659a923182ce11cd54.mailgun.org"
-    MAILGUN_API_KEY = "0a35aa065f5de2be84ea8ac70c3f6ea2-360a0b2c-6a0f55b0"
+    MAILGUN_DOMAIN = os.environ.get("MAILGUN_DOMAIN")
+    MAILGUN_API_KEY = os.environ.get("MAILGUN_API_KEY")
     FROM_TITLE = "Stores REST API"
     FROM_EMAIL = "calvincolton@hotmail.com"
 

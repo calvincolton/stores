@@ -41,15 +41,3 @@ class UserModel(db.Model):
     def delete_from_db(self) -> None:
         db.session.delete(self)
         db.session.commit()
-
-
-# API key: 0a35aa065f5de2be84ea8ac70c3f6ea2-360a0b2c-6a0f55b0
-# API base URL: https://api.mailgun.net/v3/sandbox436e3a5721bf44659a923182ce11cd54.mailgun.org
-# def send_simple_message():
-# 	return requests.post(
-# 		"https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages",
-# 		auth=("api", "YOUR_API_KEY"),
-# 		data={"from": "Excited User <mailgun@YOUR_DOMAIN_NAME>",
-# 			"to": ["bar@example.com", "YOU@YOUR_DOMAIN_NAME"],
-# 			"subject": "Hello",
-# 			"text": "Testing some Mailgun awesomness!"})
