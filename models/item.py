@@ -1,8 +1,6 @@
 from typing import List
 from db import db
 
-ItemJSON = Dict[str, Union[int, str, float]]
-
 
 class ItemModel(db.Model):
     __tablename__ = "items"

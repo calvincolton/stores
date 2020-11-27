@@ -10,6 +10,7 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
+    activated = db.Column(db.Boolean, default=False)
 
     # def json(self) -> UserJSON:
     #     return {"id": self.id, "username": self.username}
