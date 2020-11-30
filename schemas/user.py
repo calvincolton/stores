@@ -8,6 +8,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         model = UserModel
         load_only = ("password",)
         dump_only = ("id", "confirmation")
+        include_relationships = True
         load_instance = True
 
     @pre_dump
