@@ -1,8 +1,10 @@
 Flask
 Flask-JWT-Extended
+flask-marshmallow
 Flask-RESTful
 Flask-SQLAlchemy
-Marshmallow
-Flask-Marshmallow
-Marshmallow-SQLAlchemy
-Requests
+flask-uploads
+marshmallow
+marshmallow-sqlalchemy
+python-dotenv
+requests
