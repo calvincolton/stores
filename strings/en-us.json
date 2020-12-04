@@ -25,5 +25,12 @@
   "user_error_creating": "Internal server error. Failed to create user.",
   "user_registered": "Account created successfully. An email with activation link has been sent to your email address. Please check.",
   "image_uploaded": "Image '{}' uploaded.",
-  "image_illegal_extension": "Extension '{}' is not allowed."
+  "image_illegal_extension": "Extension '{}' is not allowed.",
+  "image_illegal_filename": "Illegal filename '{}' requested.",
+  "image_not_found": "Image '{}' not found.",
+  "image_deleted": "Image '{}' deleted.",
+  "image_delete_failed": "Internal server error. Failed to delete image.",
+  "avatar_delete_failed": "Internal server error. Failed to delete avatar",
+  "avatar_uploaded": "Avatar uploaded.",
+  "avatar_not_found": "Avatar not found."
 }
