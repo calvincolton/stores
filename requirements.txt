@@ -1,6 +1,7 @@
 Flask
 Flask-JWT-Extended
 flask-marshmallow
+Flask-OAuthlib
 Flask-RESTful
 Flask-SQLAlchemy
 flask-uploads
