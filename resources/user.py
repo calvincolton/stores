@@ -42,7 +42,7 @@ class UserRegister(Resource):
             return {"message": gettext("user_registered")}, 201
         except MailgunException as e:
             user.delete_from_db()
-            return {"message": e.message}, 500
+            return {"message": str(e)}, 500
         except:
             traceback.print_exc()
             user.delete_from_db()
