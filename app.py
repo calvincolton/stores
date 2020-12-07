@@ -76,7 +76,9 @@ api.add_resource(Confirmation, "/user_confirm/<string:confirmation_id>")
 api.add_resource(ConfirmationByUser, "/confirmation/user/<int:user_id>")
 api.add_resource(SetPassword, "/user/password")
 api.add_resource(GithubLogin, "/login/github")
-api.add_resource(GithubAuthorize, "/login/github/authorized")
+api.add_resource(
+    GithubAuthorize, "/login/github/authorized", endpoint="github.authorize"
+)
 api.add_resource(ImageUpload, "/upload/image")
 api.add_resource(Image, "/image/<string:filename>")
 api.add_resource(AvatarUpload, "/upload/avatar")
