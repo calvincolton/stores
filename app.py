@@ -13,7 +13,14 @@ from db import db
 from ma import ma
 from oa import oauth
 from blacklist import BLACKLIST
-from resources.user import UserRegister, UserLogin, User, TokenRefresh, UserLogout
+from resources.user import (
+    UserRegister,
+    UserLogin,
+    User,
+    TokenRefresh,
+    UserLogout,
+    SetPassword,
+)
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 from resources.confirmation import Confirmation, ConfirmationByUser
@@ -67,6 +74,7 @@ api.add_resource(TokenRefresh, "/refresh")
 api.add_resource(UserLogout, "/logout")
 api.add_resource(Confirmation, "/user_confirm/<string:confirmation_id>")
 api.add_resource(ConfirmationByUser, "/confirmation/user/<int:user_id>")
+api.add_resource(SetPassword, "/user/password")
 api.add_resource(GithubLogin, "/login/github")
 api.add_resource(GithubAuthorize, "/login/github/authorized")
 api.add_resource(ImageUpload, "/upload/image")

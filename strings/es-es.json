@@ -24,6 +24,7 @@
   "user_not_confirmed_error": "Y__TODO__ translate to Spanish: ou have not confirmed registration, please check your email <{}>.",
   "user_error_creating": "__TODO__ translate to Spanish: Internal server error. Failed to create user.",
   "user_registered": "__TODO__ translate to Spanish: Account created successfully. An email with activation link has been sent to your email address. Please check.",
+  "user_password_updated": "User password updated successfully.",
   "image_uploaded": "Image '{}' uploaded.",
   "image_illegal_extension": "Extension '{}' is not allowed.",
   "image_illegal_filename": "Illegal filename '{}' requested.",

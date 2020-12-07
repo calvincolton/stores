@@ -9,6 +9,7 @@ from flask_jwt_extended import (
     get_jwt_identity,
     jwt_required,
     get_raw_jwt,
+    fresh_jwt_required,
 )
 from blacklist import BLACKLIST
 from marshmallow import ValidationError
@@ -93,6 +94,23 @@ class UserLogin(Resource):
             }, 400
 
         return {"message": gettext("user_invalid_credentials")}, 401
+
+
+class SetPassword(Resource):
+    @classmethod
+    @fresh_jwt_required
+    def post(cls):
+        user_json = request.get_json()
+        user_data = user_schema.load(user_json)  # username and new password
+        user = UserModel.find_by_username(user_data.username)
+
+        if not user:
+            return {"message": gettext("user_not_found")}, 400
+
+        user.password = user_data.password
+        user.save_to_db()
+
+        return {"message": gettext("user_password_updated")}, 201
 
 
 class UserLogout(Resource):
