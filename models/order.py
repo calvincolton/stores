@@ -1,6 +1,10 @@
 import os
 from db import db
 from typing import List
+import stripe
+
+
+CURRENCY = "usd"
 
 
 class ItemsInOrder(db.Model):
@@ -30,6 +34,31 @@ class OrderModel(db.Model):
     @classmethod
     def find_by_id(cls, _id: int) -> "OrderModel":
         return cls.query.filter_by(id=_id).first()
+
+    @property
+    def description(self):
+        """
+        Generates a simple string representing the oder, in the format of "5x chars, 2x tables"
+        """
+        item_counts = [f"{i.quantity}x {i.item.name}" for i in self.items]
+        return ",".join(item_counts)
+
+    @property
+    def amount(self):
+        return int(
+            sum([item_data.item.price * item_data.quantity for item_data in self.items])
+            * 100
+        )
+
+    def charge_with_stripe(self, token: str) -> stripe.Charge:
+        stripe.api_key = os.getenv("STRIPE_PUBLISHABLE_KEY")
+
+        return stripe.Charge.create(
+            amount=self.amount,  # amount in USD cents (e.g. 100 = $1)
+            currency=CURRENCY,
+            description=self.description,
+            source=token,
+        )
 
     def set_status(self, new_status: str) -> None:
         self.status = new_status
